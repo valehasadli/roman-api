@@ -20,3 +20,9 @@ shell:
 destroy:
 	./vendor/bin/sail down --rmi all -v
 	docker system prune -a
+
+test:
+	php artisan test
+
+load:
+	composer dump-autoload -o

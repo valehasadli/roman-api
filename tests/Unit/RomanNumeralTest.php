@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Services\RomanNumeralConverter;
+use App\Services\Converter\RomanNumeralConverter;
 use PHPUnit\Framework\TestCase;
 
 class RomanNumeralTest extends TestCase
@@ -16,32 +16,14 @@ class RomanNumeralTest extends TestCase
         $this->converter = new RomanNumeralConverter();
     }
 
-    public function testConvertsIntegersToRomanNumerals(): void
+    /** @test */
+    public function convertsIntegersToRomanNumerals(): void
     {
-        // Test the basic conversions
-        $toTest = [
-            'I' => 1,
-            'IV' => 4,
-            'V' => 5,
-            'IX' => 9,
-            'X' => 10,
-            'C' => 100,
-            'XL' => 40,
-            'L' => 50,
-            'XC' => 90,
-            'CD' => 400,
-            'D' => 500,
-            'CM' => 900,
-            'M' => 1000,
-        ];
-
-        foreach ($toTest as $returnValue => $integer) {
-            $this->assertEquals($returnValue, $this->converter->convertInteger($integer));
-        }
-
         // Test more unique integers
-        $this->assertEquals('MMMCMXCIX', $this->converter->convertInteger(3999));
-        $this->assertEquals('MMXVI', $this->converter->convertInteger(2016));
-        $this->assertEquals('MMXVIII', $this->converter->convertInteger(2018));
+        $this->assertEquals('I', $this->converter->convert(1));
+        $this->assertEquals('MMMCMXCIX', $this->converter->convert(3999));
+        $this->assertEquals('MMXVI', $this->converter->convert(2016));
+        $this->assertEquals('MMXVIII', $this->converter->convert(2018));
+        $this->assertEquals('MCMIV', $this->converter->convert(1904));
     }
 }
