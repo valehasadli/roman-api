@@ -8,7 +8,7 @@ use App\Services\Converter\Contracts\NumberConverterContract;
  * Class RomanNumeralConverter
  * @package App\Services\Converter
  */
-final class RomanNumeralConverter implements NumberConverterContract
+class RomanNumberConverter implements NumberConverterContract
 {
     private const ROMAN_CHAR = [
         'M' => 1000,

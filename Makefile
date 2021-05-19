@@ -26,3 +26,9 @@ test:
 
 load:
 	composer dump-autoload -o
+
+route:
+	php artisan route:list
+
+migrate-seed:
+	php artisan migrate:fresh --seed
