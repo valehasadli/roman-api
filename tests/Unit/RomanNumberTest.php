@@ -1,19 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit;
 
-use App\Services\Converter\RomanNumeralConverter;
+use App\Services\Converter\RomanNumberConverter;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\TestCase;
 
-class RomanNumeralTest extends TestCase
+class RomanNumberTest extends TestCase
 {
-    private RomanNumeralConverter $converter;
+    use RefreshDatabase;
+
+    private RomanNumberConverter $converter;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->converter = new RomanNumeralConverter();
+        $this->converter = new RomanNumberConverter();
     }
 
     /** @test */

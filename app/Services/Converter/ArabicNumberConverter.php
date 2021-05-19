@@ -10,7 +10,7 @@ use App\Services\Converter\Contracts\NumberConverterContract;
  * Class ArabicNumeralConverter
  * @package App\Services\Converter
  */
-final class ArabicNumeralConverter implements NumberConverterContract
+class ArabicNumberConverter implements NumberConverterContract
 {
     /**
      * @param int $number
@@ -18,6 +18,6 @@ final class ArabicNumeralConverter implements NumberConverterContract
      */
     public function convert(int $number): string
     {
-        // implement business logic here
+        return 'some arabic number for testing purpose';
     }
 }
